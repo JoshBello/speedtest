@@ -6,13 +6,14 @@
 <meta charset="UTF-8" />
 <script type="text/javascript" src="speedtest.js"></script>
 <script type="text/javascript">
+<title>Vodafone MEC Speed Test</title>
 function I(i){return document.getElementById(i);}
 
 //LIST OF TEST SERVERS. See documentation for details if needed
 var SPEEDTEST_SERVERS=[
 	{	//this is my demo server, remove it
-		name: "GCP VM", //user friendly name for the server
-		server: "http://35.246.10.74/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		name: "GCP VM (London)", //user friendly name for the server
+		server: "//35.246.10.74/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL: "backend/garbage.php",  //path to download test on this server (garbage.php or replacement)
 		ulURL: "backend/empty.php",  //path to upload test on this server (empty.php or replacement)
 		pingURL: "backend/empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
