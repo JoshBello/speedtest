@@ -15,7 +15,7 @@ function I(i){return document.getElementById(i);}
 var SPEEDTEST_SERVERS=[
 	{	//this is my demo server, remove it
 		name: "GCP VM (London)", //user friendly name for the server
-		server: "//35.246.10.74/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		server: "http://35.246.10.74/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL: "garbage.php",  //path to download test on this server (garbage.php or replacement)
 		ulURL: "empty.php",  //path to upload test on this server (empty.php or replacement)
 		pingURL: "empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
@@ -423,8 +423,9 @@ function initUI(){
 <title>Vodafone MEC Speed Test</title>
 </head>
 <button onclick="getLocation()">Try It</button>
-<h1 id="loc_Text"></h1>
+
 <body onload="initServers()">
+<h1 id="loc_Text"></h1>
 <h1>Vodafone MEC Speed Test</h1>
 <div id="loading" class="visible">
 	<p id="message"><span class="loadCircle"></span>Selecting a server...</p>
