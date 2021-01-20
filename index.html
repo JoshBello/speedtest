@@ -36,6 +36,24 @@ var SPEEDTEST_SERVERS=[
 var s=new Speedtest(); //create speedtest object
 s.setParameter("telemetry_level","basic"); //enable telemetry
 
+
+var loc = document.getElementById("locText");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    loc.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  loc.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+
+
+
 //SERVER AUTO SELECTION
 function initServers(){
     var noServersAvailable=function(){
@@ -53,6 +71,9 @@ function initServers(){
                     option.textContent=SPEEDTEST_SERVERS[i].name;
                     if(SPEEDTEST_SERVERS[i]===server) option.selected=true;
                     I("server").appendChild(option);
+
+										var x = document.getElementById("demo");
+
                 }
                 //show test UI
                 I("testWrapper").className="visible";
@@ -400,6 +421,7 @@ function initUI(){
 </style>
 <title>Vodafone MEC Speed Test</title>
 </head>
+<button onclick="getLocation()">Try It</button>
 <body onload="initServers()">
 <h1>Vodafone MEC Speed Test</h1>
 <div id="loading" class="visible">
@@ -421,6 +443,11 @@ function initUI(){
 				<div class="testName">Jitter</div>
 				<div id="jitText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
+			</div>
+			<div class="testArea2">
+				<div class="testName">Location</div>
+				<div id="locText" class="meterText" style="color:#AA6060"></div>
+				<div class="unit">Deg</div>
 			</div>
 		</div>
 		<div class="testGroup">
