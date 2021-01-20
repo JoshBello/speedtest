@@ -37,7 +37,7 @@ var s=new Speedtest(); //create speedtest object
 s.setParameter("telemetry_level","basic"); //enable telemetry
 
 
-var loc = document.getElementById("locText");
+var loc = document.getElementById("loc_Text");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -423,7 +423,7 @@ function initUI(){
 <title>Vodafone MEC Speed Test</title>
 </head>
 <button onclick="getLocation()">Try It</button>
-<h1 id="locText"></h1>
+<h1 id="loc_Text"></h1>
 <body onload="initServers()">
 <h1>Vodafone MEC Speed Test</h1>
 <div id="loading" class="visible">
