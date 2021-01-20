@@ -37,20 +37,6 @@ var s=new Speedtest(); //create speedtest object
 s.setParameter("telemetry_level","basic"); //enable telemetry
 
 
-var loc = document.getElementById("loc_Text");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    loc.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  loc.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-}
 
 
 
@@ -58,6 +44,22 @@ function showPosition(position) {
 function initServers(){
     var noServersAvailable=function(){
         I("message").innerHTML="No servers available";
+
+		var loc = document.getElementById("loc_Text");
+
+		function getLocation() {
+		  if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		  } else {
+		    loc.innerHTML = "Geolocation is not supported by this browser.";
+		  }
+		}
+
+		function showPosition(position) {
+		  loc.innerHTML = "Latitude: " + position.coords.latitude +
+		  "<br>Longitude: " + position.coords.longitude;
+		}
+
     }
     var runServerSelect=function(){
         s.selectServer(function(server){
